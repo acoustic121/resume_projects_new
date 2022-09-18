@@ -24,7 +24,7 @@ for item in newword2:
     else: 
         freq[item] = 1
 for key,value in freq.items(): 
-    print ("% s : % s"%(key, value)) 
+    print ("% s : % s"%(key, value)) //counting using dictionary
             
         
 df = pd.DataFrame(data=freq,index=[0])

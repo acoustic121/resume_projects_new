@@ -1,10 +1,10 @@
 import pandas as pd
-data1=pd.read_excel("jan_alerts.xlsx")
-s=data1["Message"]
-message_list=list(s)
+data1=pd.read_excel("jan_alerts.xlsx")//reading the file
+s=data1["Message"]//taking the column Message only
+message_list=list(s)//converting into list
 sentence_split_list=[]
 for x in message_list:
-    sentence_split_list.append(x.split())
+    sentence_split_list.append(x.split())//converting the sentence into words
 filtered_list=[]
 for x in sentence_split_list:
     if "REALERT" not in x and "New,ticket" not in x:
