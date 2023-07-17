@@ -1,0 +1,24 @@
+import openpyxl
+
+# Import the keywords from the text file
+with open("client_id.txt", "r") as f:
+    keywords = f.readlines()
+    keywords = [keyword.strip() for keyword in keywords]
+
+# Open the Excel sheet
+workbook = openpyxl.load_workbook("analysis_result.xlsx")
+sheet = workbook.active
+
+# Iterate over the rows in the Excel sheet
+for row in range(2, sheet.max_row + 1):
+    # Get the value in the cell
+    cell_value = sheet.cell(row, 1).value
+
+    # Check if the value contains any of the keywords
+    for keyword in keywords:
+        if keyword in cell_value:
+            # Write the keyword to the next column
+            sheet.cell(row, 2).value = keyword
+
+# Save the Excel sheet
+workbook.save("analysis_result2.xlsx")
